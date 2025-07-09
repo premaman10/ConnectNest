@@ -27,7 +27,7 @@ export const connectToSocket = (server)=>{
             timeOnline[socket.id] = new Date();
             
 
-            for(let a= 0;a<connections[path].length;i++){
+            for(let a= 0;a<connections[path].length;a++){
                 io.to(connections[path][a]).emit("user-joined",socket.id,connections[path])
             }
             if(messages[path]!==undefined){
@@ -55,7 +55,7 @@ export const connectToSocket = (server)=>{
                     messages[matchingRoom] = []
                 }
                 messages[matchingRoom].push({'data':data,'sender':sender,'socket-id-sender':socket.id})
-                console.log("message",KeyboardEvent,":",sender,data)
+                console.log("message:", sender, data)
                 connections[matchingRoom].forEach((elem)=>{
                     io.to(elem).emit("chat-message",data,sender,socket.id)
                 })

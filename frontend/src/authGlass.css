@@ -1,0 +1,205 @@
+.auth-bg {
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #4F8CFF 0%, #7ED957 100%);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.split-auth-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.split-auth-solid {
+  width: 50vw;
+  height: 100vh;
+  display: block;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+:root {
+  --auth-image-1: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');
+  --auth-image-2: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80');
+  --auth-image-3: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80');
+  --auth-image-4: url('https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=1200&q=80');
+  --auth-image-5: url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80');
+  --auth-image-6: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80');
+  --auth-image-7: url('https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=1200&q=80');
+  --auth-image-8: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');
+  --auth-image-9: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80');
+  --auth-image-10: url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80');
+  --auth-image-11: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80');
+  --auth-image-12: url('https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=1200&q=80');
+}
+
+.split-auth-image {
+  width: 50vw;
+  height: 100vh;
+  background-image: var(--auth-image-1);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.5s;
+}
+
+.split-auth-card-wrapper {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.split-auth-card {
+  min-width: 280px;
+  max-width: 340px;
+  width: 90%;
+  margin: auto;
+}
+
+@media (max-width: 900px) {
+  .split-auth-container {
+    flex-direction: column;
+  }
+  .split-auth-solid {
+    display: none;
+  }
+  .split-auth-card-wrapper {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 24px !important;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.auth-bg-gradient {
+  filter: blur(2px) brightness(0.8);
+}
+
+.auth-bg-fullimg {
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.centered-auth-card-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.fullimg-auth-card {
+  background: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 32px !important;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  padding: 48px 36px 36px 36px;
+  min-width: 320px;
+  max-width: 400px;
+  width: 95vw;
+  margin: auto;
+  color: #fff;
+}
+
+.fullimg-auth-card .MuiInputBase-root,
+.fullimg-auth-card .MuiOutlinedInput-root {
+  background: rgba(255,255,255,0.25);
+  border-radius: 18px;
+  color: #fff;
+}
+
+.fullimg-auth-card .MuiInputLabel-root {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.fullimg-auth-card .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255,255,255,0.4);
+}
+
+.fullimg-auth-card .MuiButton-contained {
+  background: #ffb385;
+  color: #232526;
+  font-weight: 700;
+  border-radius: 24px;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 20px rgba(255,179,133,0.15);
+  padding: 12px 0;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.fullimg-auth-card .MuiButton-contained:hover {
+  background: #ff9e57;
+  color: #fff;
+}
+
+.fullimg-auth-card .MuiButton-outlined {
+  border-radius: 18px;
+  border-color: #fff;
+  color: #fff;
+  font-weight: 600;
+  background: rgba(255,255,255,0.10);
+}
+
+.fullimg-auth-card .MuiButton-outlined:hover {
+  background: rgba(255,255,255,0.18);
+  color: #ffb385;
+  border-color: #ffb385;
+}
+
+.fullimg-auth-card label {
+  color: #fff;
+}
+
+.fullimg-auth-card input {
+  color: #fff;
+}
+
+.fullimg-auth-card .MuiDivider-root {
+  color: #fff;
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .fullimg-auth-card {
+    min-width: 90vw;
+    max-width: 98vw;
+    padding: 24px 6vw 24px 6vw;
+  }
+} 

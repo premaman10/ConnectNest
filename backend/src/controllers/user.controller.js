@@ -66,4 +66,36 @@ const register = async(req,res)=>{
         res.status(500).json({message:`Something went Wrong: ${e.message}`});
     }
 }
-export {login, register}
+
+// Add to activity
+const addToActivity = async (req, res) => {
+    const { token, meeting_code } = req.body;
+    if (!token || !meeting_code) {
+        return res.status(400).json({ message: "Token and meeting code required" });
+    }
+    try {
+        const user = await User.findOne({ token });
+        if (!user) return res.status(404).json({ message: "User not found" });
+        user.activity = user.activity || [];
+        user.activity.push({ meetingCode: meeting_code });
+        await user.save();
+        res.status(200).json({ message: "Activity added" });
+    } catch (e) {
+        res.status(500).json({ message: "Error adding activity" });
+    }
+};
+
+// Get all activity
+const getAllActivity = async (req, res) => {
+    const { token } = req.query;
+    if (!token) return res.status(400).json({ message: "Token required" });
+    try {
+        const user = await User.findOne({ token });
+        if (!user) return res.status(404).json({ message: "User not found" });
+        res.status(200).json(user.activity || []);
+    } catch (e) {
+        res.status(500).json({ message: "Error fetching activity" });
+    }
+};
+
+export {login, register, addToActivity, getAllActivity}
