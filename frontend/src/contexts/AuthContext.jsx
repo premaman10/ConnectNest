@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
             let request = await client.post("/login", {
                 username: username,
                 password: password
-            });
+            }, { withCredentials: true });
 
             console.log(username, password)
             console.log(request.data)
