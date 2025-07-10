@@ -9,14 +9,14 @@ let messages = {}
 let timeOnline  = {}
 
 export const connectToSocket = (server)=>{
-    const io = new Server(server,{
-        cors:{
-            origin: "*",
-            methods: ["GET","POST"],
-            credentials: true,
-            allowedHeaders: ['*']
-        }
-    });
+    const io = new Server(server, {
+    cors: {
+        origin: ["http://localhost:3000", "https://connectnestfrontend.onrender.com"],
+        methods: ["GET", "POST"],
+        credentials: true
+    }
+});
+
 
     io.on("connection",(socket)=>{
         socket.on("join-call",(path)=>{
