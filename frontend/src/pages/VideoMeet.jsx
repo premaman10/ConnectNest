@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import io from "socket.io-client";
 import { Badge, IconButton, TextField } from '@mui/material';
 import { Button } from '@mui/material';
@@ -129,7 +129,7 @@ export default function VideoMeetComponent() {
         }
 
 
-    }, [video, audio])
+    }, [video, audio, getUserMedia])
     let getMedia = () => {
         setVideo(videoAvailable);
         setAudio(audioAvailable);
@@ -190,7 +190,7 @@ export default function VideoMeetComponent() {
         })
     }
 
-    let getUserMedia = () => {
+    const getUserMedia = useCallback(() => {
         if ((video && videoAvailable) || (audio && audioAvailable)) {
             navigator.mediaDevices.getUserMedia({ video: video, audio: audio })
                 .then(getUserMediaSuccess)
@@ -202,8 +202,7 @@ export default function VideoMeetComponent() {
                 tracks.forEach(track => track.stop())
             } catch (e) { }
         }
-    }
-
+    }, [video, audio, videoAvailable, audioAvailable]);
 
 
 
