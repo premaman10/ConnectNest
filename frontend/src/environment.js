@@ -1,4 +1,4 @@
-let IS_PROD = false; // Change to true when deploying to production
+let IS_PROD = true; // Changed to true for production deployment
 const server = IS_PROD ?
     "https://connectnest.onrender.com" :
     "http://localhost:5000"
