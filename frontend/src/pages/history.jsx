@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import HomeIcon from '@mui/icons-material/Home';
 
-import { IconButton } from '@mui/material';
+import { IconButton, CardContent } from '@mui/material';
 export default function History() {
 
 
