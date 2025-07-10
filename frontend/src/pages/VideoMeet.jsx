@@ -123,7 +123,8 @@ export default function VideoMeetComponent() {
         }
     };
 
-    let getUserMediaSuccess = (stream) => {
+    // Wrap getUserMediaSuccess in a useCallback and move it above any usage
+    const getUserMediaSuccess = useCallback((stream) => {
         try {
             window.localStream.getTracks().forEach(track => track.stop())
         } catch (e) { console.log(e) }
@@ -180,8 +181,9 @@ export default function VideoMeetComponent() {
                 getUserMedia();
             }
         })
-    }
+    }, [localVideoref, socketIdRef, setScreen, setVideo, setAudio, getUserMedia]);
 
+    // Update getUserMedia to use the useCallback version of getUserMediaSuccess
     const getUserMedia = useCallback(() => {
         if ((video && videoAvailable) || (audio && audioAvailable)) {
             navigator.mediaDevices.getUserMedia({ video: video, audio: audio })
