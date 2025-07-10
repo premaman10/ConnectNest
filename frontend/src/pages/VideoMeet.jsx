@@ -70,16 +70,18 @@ export default function VideoMeetComponent() {
 
     })
 
-    let getDislayMedia = () => {
+    // Convert getDislayMedia to useCallback and fix the function call
+    const getDislayMedia = useCallback(() => {
         if (screen) {
             if (navigator.mediaDevices.getDisplayMedia) {
                 navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
-                    .then(getDislayMediaSuccess)
+                    .then(getUserMediaSuccess)
                     .then((stream) => { })
-                    .catch((e) => console.log(e))
+                    .catch((e) => console.log(e));
             }
         }
-    }
+    }, [screen, getUserMediaSuccess]);
+    // Optional: Consider renaming getDislayMedia to getDisplayMedia for clarity
 
     const getPermissions = async () => {
         try {
