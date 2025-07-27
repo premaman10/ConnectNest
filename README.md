@@ -1,7 +1,7 @@
 
 # 📞 ConnectNest
 
-**ConnectNest** is a Zoom-like real-time communication web application built using the MERN stack. It allows users to conduct secure video calls, chat in real time, share their screens, and collaborate from anywhere in the world. The application is powered by WebRTC for peer-to-peer media streaming and Socket.IO for real-time event handling.
+**ConnectNest** is a real-time communication web application built using the MERN stack. It allows users to conduct secure video calls, chat in real time, share their screens, and collaborate from anywhere in the world. The application is powered by WebRTC for peer-to-peer media streaming and Socket.IO for real-time event handling.
 
 > 🔗 **Live Demo**: [connectnestfrontend.onrender.com](https://connectnestfrontend.onrender.com)  
 > 🖥️ **Frontend Repo**: [Frontend GitHub Link](https://github.com/premaman10/ConnectNest-Frontend)  
